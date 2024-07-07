@@ -66,6 +66,10 @@ if __name__ == "__main__":
 
 Now that's all is needed for you to make your app AI powered!
 
+## How to run the funcgenie app
+
+Needs to be filled
+
 ## Run your app using AI:
 
 ```
@@ -73,3 +77,12 @@ curl -X POST http://localhost:1411/query \
      -H "Content-Type: application/json" \
      -d '{"query": "How many books are there in the library?"}'
 ```
+
+## Why to use OpenAI?
+
+OpenAI provides this functionality where in you can ask the LLM to give you a function call based on the user's query and available functions.
+
+## Why to use Pathway?
+
+In large applications, there can be a lot of phantom functions. If all the phantom functions are sent in every API to OpenAI, it will result in huge cost due to the amount of tokens consumed by phantom functions. 
+Pathway gets the query and sends only 3 functions which are relevant to the query by doing similarity search, this way, we can save a lot of input tokens.
