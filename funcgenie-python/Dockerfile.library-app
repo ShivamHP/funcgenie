@@ -1,0 +1,14 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install the funcgenie package
+RUN pip install .
+
+EXPOSE 5000
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "examples.library_app:app"]

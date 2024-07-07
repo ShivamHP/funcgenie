@@ -1,0 +1,36 @@
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.env.*
+
+# Editor directories and files
+.vscode/
+.idea/
+.project
+.pydevproject
