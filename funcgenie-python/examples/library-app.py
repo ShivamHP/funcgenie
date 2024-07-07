@@ -26,7 +26,7 @@ def add_book(title: str, author: str):
         "author": author
     }
     books.append(book)
-    return book
+    return {"message": "Book added successfully", "book": book}
 
 @phantom
 def get_books():

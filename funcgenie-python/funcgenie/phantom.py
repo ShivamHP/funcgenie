@@ -32,6 +32,12 @@ def phantom(func):
             "type": type_hints.get(name, str).__name__,  # Get the type hint if available, default to 'str'
             "description": ""
         }
+        if param_info["type"] == "int":
+            param_info["type"] = "integer"
+        elif param_info["type"] == "str":
+            param_info["type"] = "string"
+        elif param_info["type"] == "bool":
+            param_info["type"] = "boolean"
         if param.default is param.empty:
             parameters["required"].append(name)
         else:

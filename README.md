@@ -62,3 +62,4 @@ if __name__ == "__main__":
     app.run(port=5000)
 ```
 
+Now that's all is needed for you to make your app AI powered!
