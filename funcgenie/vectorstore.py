@@ -1,12 +1,18 @@
 import pathway as pw
 from langchain_community.embeddings.openai import OpenAIEmbeddings
-from pathway.xpacks.llm.vector_store import VectorStoreServer, VectorStoreClient
+from pathway.xpacks.llm.vector_store import VectorStoreServer
 from dotenv import load_dotenv
 import os
 import json
 import requests
 
 load_dotenv()
+
+PATHWAY_HOST = os.getenv("PATHWAY_HOST")
+PATHWAY_PORT = int(os.getenv("PATHWAY_PORT"))
+
+CLIENT_HOST = os.getenv("CLIENT_HOST")
+CLIENT_PORT = os.getenv("CLIENT_PORT")
 
 def load_phantom_functions():
     response = requests.get('http://127.0.0.1:5000/phantom-functions')
@@ -33,9 +39,6 @@ data_sources.append(
     )
 )
 
-
-PATHWAY_PORT = 8765
-
 embeddings_model = OpenAIEmbeddings()
 
 vector_server = VectorStoreServer.from_langchain_components(
@@ -45,4 +48,4 @@ vector_server = VectorStoreServer.from_langchain_components(
 
 if __name__ == "__main__":
     load_phantom_functions()
-    vector_server.run_server(host="127.0.0.1", port=PATHWAY_PORT, threaded=False, with_cache=False)
+    vector_server.run_server(host=PATHWAY_HOST, port=PATHWAY_PORT, threaded=False, with_cache=False)

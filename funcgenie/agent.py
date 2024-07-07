@@ -13,20 +13,19 @@ LLM_MODEL = os.getenv("LLM_MODEL")
 class Agent:
     def __init__(self, tools=[]):
         self.openai = OpenAI()
-        self.tools = tools
 
     @retry(
         wait=wait_random_exponential(multiplier=1, max=40), stop=stop_after_attempt(3)
     )
     def chat_completion_request(
-        self, messages, max_iterations=3, tool_choice="auto", model=LLM_MODEL
+        self, messages, tools=[], max_iterations=3, tool_choice="auto", model=LLM_MODEL
     ):
         while max_iterations > 0:
             try:
                 response = self.openai.chat.completions.create(
                     model=model,
                     messages=messages,
-                    tools=self.tools,
+                    tools=tools,
                     tool_choice=tool_choice,
                 )
                 if not response.choices[0].message.tool_calls:

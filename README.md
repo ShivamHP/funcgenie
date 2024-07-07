@@ -1,6 +1,11 @@
-# FuncGenie: Unleash the Magic of Automated Function Invocation
+# FuncGenie: Make your app AI powered
 
 Welcome to **FuncGenie**, the magical Python package that transforms your functions into powerful, automated tools ready to be invoked by an intelligent Large Language Model (LLM). With FuncGenie, you can seamlessly integrate and manage your functions, allowing for automated execution in response to dynamic queries.
+
+<video width="1000" height="600" controls>
+  <source src="funcgenie.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## What is FuncGenie?
 
@@ -63,3 +68,11 @@ if __name__ == "__main__":
 ```
 
 Now that's all is needed for you to make your app AI powered!
+
+## Run your app using AI:
+
+```
+curl -X POST http://localhost:1411/query \
+     -H "Content-Type: application/json" \
+     -d '{"query": "How many books are there in the library?"}'
+```
