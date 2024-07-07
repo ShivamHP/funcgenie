@@ -2,10 +2,7 @@
 
 Welcome to **FuncGenie**, the magical Python package that transforms your functions into powerful, automated tools ready to be invoked by an intelligent Large Language Model (LLM). With FuncGenie, you can seamlessly integrate and manage your functions, allowing for automated execution in response to dynamic queries.
 
-<video width="1000" height="600" controls>
-  <source src="funcgenie.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="funcgenie.gif" width="800" height="400" alt="funcgenie demo">
 
 ## What is FuncGenie?
 
