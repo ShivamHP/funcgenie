@@ -1,0 +1,12 @@
+{
+    "function": {
+        "description": "\n    Retrieves a list of books from the library.\n\n    Returns:\n        list: A list of books available in the library.\n    ",
+        "name": "get_books",
+        "parameters": {
+            "properties": {},
+            "required": [],
+            "type": "object"
+        }
+    },
+    "type": "function"
+}
