@@ -28,6 +28,7 @@ class Agent:
                     tools=tools,
                     tool_choice=tool_choice,
                 )
+                print(messages)
                 if not response.choices[0].message.tool_calls:
                     return response.choices[0].message.content
                 else:
@@ -49,10 +50,11 @@ class Agent:
                     if res.status_code == 200:
                         messages.append(
                             {
-                                "role": "user",
-                                "content": f"For {response.choices[0].message.tool_calls[0].function.name}, we got answer: {res.json()}",
+                                "role": "system",
+                                "content": f"After executing this function: {response.choices[0].message.tool_calls[0].function.name}, we got response: {res.json()['result']}",
                             }
                         )
+                        tool_choice = "none" # This is to prevent the agent from using tools again.
                     else:
                         messages.append(
                             {

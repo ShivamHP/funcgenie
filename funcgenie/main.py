@@ -36,7 +36,17 @@ def query_library():
             query=query,
         )
         answer = myAgent.chat_completion_request(
-            messages=[{"role": "user", "content": query}],
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an expert chatbot that has access to some functions to resolve user queries.\
+                    Use them when you feel right. The user should not be aware of the functions you are using.",
+                },
+                {
+                    "role": "user",
+                    "content": query,
+                }
+            ],
             tools=[json.loads(obj["text"]) for obj in vector_results],
         )
         return jsonify({"answer": answer}), 200

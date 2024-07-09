@@ -11,14 +11,7 @@ books = []
 @phantom
 def add_book(title: str, author: str):
     """
-    Adds a new book to the library.
-
-    Args:
-        title (str): The title of the book.
-        author (str): The author of the book.
-
-    Returns:
-        dict: The book object that was added to the library.
+    A function to add a new book to the library.
     """
     book = {
         "id": len(books) + 1,
@@ -31,10 +24,7 @@ def add_book(title: str, author: str):
 @phantom
 def get_books():
     """
-    Retrieves a list of books from the library.
-
-    Returns:
-        list: A list of books available in the library.
+    A function to get a list of all books from the library.
     """
     return books
 
