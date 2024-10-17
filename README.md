@@ -68,7 +68,25 @@ Now that's all is needed for you to make your app AI powered!
 
 ## How to run the funcgenie app
 
-Needs to be filled
+To run the FuncGenie app using Docker, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/ShivamHP/funcgenie.git
+    cd funcgenie
+    ```
+
+2. **Create a `.env` file**:
+    Create a `.env` file in the root directory of the repository and add the necessary environment variables. You can use the `.env.example` file as a reference.
+
+3. **Build and run the Docker containers**:
+    Use `docker-compose` to build and run the Docker containers for the server and vectorstore.
+    ```bash
+    docker-compose up --build
+    ```
+
+4. **Access the app**:
+    The server will be running on `http://localhost:1411` and the vectorstore will be running on `http://localhost:5000`.
 
 ## Run your app using AI:
 

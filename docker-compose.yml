@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    env_file:
+      - .env
+    ports:
+      - "1411:1411"
+    depends_on:
+      - vectorstore
+    networks:
+      - app-network
+
+  vectorstore:
+    build:
+      context: .
+      dockerfile: Dockerfile.vectorstore
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -14,6 +14,7 @@ PATHWAY_PORT = int(os.getenv("PATHWAY_PORT"))
 CLIENT_HOST = os.getenv("CLIENT_HOST")
 CLIENT_PORT = os.getenv("CLIENT_PORT")
 
+
 def load_phantom_functions():
     response = requests.get('http://127.0.0.1:5000/phantom-functions')
     if response.status_code != 200:
