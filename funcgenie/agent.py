@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 LLM_MODEL = os.getenv("LLM_MODEL")
+CLIENT_HOST = os.getenv("CLIENT_HOST")
+CLIENT_PORT = os.getenv("CLIENT_PORT")
 
 
 class Agent:
@@ -35,7 +37,7 @@ class Agent:
                     max_iterations -= 1
                     if max_iterations == 0:
                         return response.choices[0].message.content
-                    url = "http://127.0.0.1:5000/call-phantom-function"
+                    url = f"http://{CLIENT_HOST}:{CLIENT_PORT}/call-phantom-function"
                     payload = {
                         "function_name": response.choices[0]
                         .message.tool_calls[0]
